@@ -1,7 +1,7 @@
 Relational Schema-
 
 Booking (BookID (PK), StartDate, EndDate, Insurance, Day, VehicleID (FK))
-Client (LicenseID (PK), FirstName, LastName, DOB, Age, AddressID (FK),Mobile, E-Mail)
+Client (LicenseID (PK), FirstName, LastName, DOB, Age, AddressID (FK),Mobile, Email)
 Drivers(LicenseID (PK), BookID (pk))
 Address (ID (PK), StreetName, Town, City, PostCode)
 Vehicle (Name, ID (PK), Seats, Engine, Cost, Type, Transmission, BaseID (FK))
@@ -29,7 +29,7 @@ DOB DATE NOT NULL,
 Age TINYINT CHECK (Age>=25),
 AddressID BIGINT FOREIGN KEY REFERENCES Address(ID)
 Mobile CHAR(10) UNIQUE,
-E-Mail VARCHAR(50) UNIQUE
+Email VARCHAR(50) UNIQUE
 ) ENGINE=INNODB
 
 CREATE TABLE Address (
@@ -68,3 +68,9 @@ LicenseID VARCHAR(20) FOREIGN KEY REFERENCES Client(LicenseID),
 BookID VARCHAR(50) FOREIGN KEY REFERENCES Booking(ID),
 Primary KEY(BookID, LicenseID)
 ) ENGINE=INNODB
+
+CREATE TABLE Service (
+
+Availability BOOLEAN,
+Schedule DATE,
+)ENGINE=INNODB
