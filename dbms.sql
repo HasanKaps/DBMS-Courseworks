@@ -123,7 +123,7 @@ This the entity that holds the additional drivers from the booking.
 Therefore, it has many to one relationship with the booking.
 
 **Client**
-It holds the information of a client.
+It holds the information of a client. has a one to one relation with address and one to many relation with booking
 
 
 **Bind**
