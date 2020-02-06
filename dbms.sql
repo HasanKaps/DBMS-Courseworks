@@ -8,9 +8,21 @@ Drivers(LicenseID (PK), BookID (pk))
 Address (ID (PK), StreetName, Town, City, PostCode)
 Vehicle (Name, ID (PK), Seats, Engine, Cost, Type, Transmission, Availability, BaseID (FK))
 Base (BaseID (PK), AddressID (FK))
-Cost (Price, Discount, BookID (FK))#
+Cost (Price, Discount, BookID (FK))
 
-SET foreign_key_checks = 0;
+CREATE TABLE Address (
+  ID BIGINT PRIMARY KEY AUTO_INCREMENT,
+  StreetName VARCHAR(50) NOT NULL,
+  Town VARCHAR(20) NOT NULL,
+  City VARCHAR(20) NOT NULL,
+  PostCode VARCHAR(12) NOT NULL
+) ENGINE=INNODB;
+
+CREATE TABLE Base (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  AddressID BIGINT,
+  FOREIGN KEY (AddressID) REFERENCES Address(ID)
+) ENGINE=INNODB;
 
 CREATE TABLE Employee (
 
@@ -18,6 +30,19 @@ CREATE TABLE Employee (
   BaseID INT,
   FOREIGN KEY (BaseID) REFERENCES Base(ID),
   ManagerID INT
+) ENGINE=INNODB;
+
+CREATE TABLE Vehicle (
+  ID BIGINT PRIMARY KEY AUTO_INCREMENT,
+  Name VARCHAR(50) NOT NULL,
+  Seats TINYINT DEFAULT 4,
+  Engine VARCHAR(20) NOT NULL,
+  Cost TINYINT(100) NOT NULL,
+  Type VARCHAR(50) NOT NULL,
+  Availability BOOLEAN,
+  Transmission VARCHAR(50) DEFAULT 'Automatic' CHECK (Transmission='Automatic' OR Transmission='Manual'),
+  BaseID INT,
+  FOREIGN KEY (BaseID) REFERENCES Base(ID)
 ) ENGINE=INNODB;
 
 CREATE TABLE Booking (
@@ -50,34 +75,6 @@ CREATE TABLE Bind (
   FOREIGN KEY (ClientID) REFERENCES Client(LicenseID),
   Type VARCHAR(50) ,
   Age TINYINT
-) ENGINE=INNODB;
-
-
-CREATE TABLE Address (
-  ID BIGINT PRIMARY KEY AUTO_INCREMENT,
-  StreetName VARCHAR(50) NOT NULL,
-  Town VARCHAR(20) NOT NULL,
-  City VARCHAR(20) NOT NULL,
-  PostCode VARCHAR(12) NOT NULL
-) ENGINE=INNODB;
-
-CREATE TABLE Vehicle (
-  ID BIGINT PRIMARY KEY AUTO_INCREMENT,
-  Name VARCHAR(50) NOT NULL,
-  Seats TINYINT DEFAULT 4,
-  Engine VARCHAR(20) NOT NULL,
-  Cost TINYINT(100) NOT NULL,
-  Type VARCHAR(50) NOT NULL,
-  Availability BOOLEAN,
-  Transmission VARCHAR(50) DEFAULT 'Automatic' CHECK (Transmission='Automatic' OR Transmission='Manual'),
-  BaseID INT,
-  FOREIGN KEY (BaseID) REFERENCES Base(ID)
-) ENGINE=INNODB;
-
-CREATE TABLE Base (
-  ID INT PRIMARY KEY AUTO_INCREMENT,
-  AddressID BIGINT,
-  FOREIGN KEY (AddressID) REFERENCES Address(ID)
 ) ENGINE=INNODB;
 
 CREATE TABLE Cost (
