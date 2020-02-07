@@ -1,4 +1,4 @@
-Relational Schema-
+/* Relational Schema-
 
 Employee (ID (PK), BaseID (FK), ManagerID)
 Booking (BookID (PK), StartDate, EndDate, Insurance, Day, VehicleID (FK))
@@ -8,7 +8,7 @@ Drivers(LicenseID (PK), BookID (pk))
 Address (ID (PK), StreetName, Town, City, PostCode)
 Vehicle (Name, ID (PK), Seats, Engine, Cost, Type, Transmission, Availability, BaseID (FK))
 Base (BaseID (PK), AddressID (FK))
-Cost (Price, Discount, BookID (FK))
+Cost (Price, Discount, BookID (FK)) */
 
 CREATE TABLE Address (
   ID BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -93,7 +93,9 @@ CREATE TABLE Drivers (
   Primary KEY(BookID, LicenseID)
 ) ENGINE=INNODB;
 
-
+/*T4 Indexes*/
+CREATE INDEX EmployeeID ON Employee(ID,BaseID);
+CREATE INDEX BookingDetails ON Booking()
 /*
 **Employee**
 Employee class is created to allow us to have recursive relation.
@@ -142,3 +144,4 @@ This in turn allows us to check and apply a constraint stating that if the age o
 but below 30 the car types they are allowed to take is restricted whereas if there age is above 30
 they can take any car type.
 */
+
