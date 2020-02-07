@@ -1,21 +1,38 @@
 /* Relational Schema-
 
-Employee (ID (PK), BaseID (FK), ManagerID)
-Booking (BookID (PK), StartDate, EndDate, Insurance, Day, VehicleID (FK))
-Client (LicenseID (PK), FirstName, LastName, DOB, Age, AddressID (FK),Mobile, Email)
-Bind (ClientID (FK), Type, Age)
-Drivers(LicenseID (PK), BookID (pk))
+Employee (SSN (PK), FirstName, LastName, DOB, BaseID (FK), ManagerSSN)
+Booking (BookID (PK), SSN, StartDate, EndDate, Insurance, Day, VehicleID (FK))
+Client (SSN (PK), FirstName, LastName, DOB, Age, AddressID (FK),Mobile, Email)
+Bind (ClientID (FK), VehicleID (FK),Type, Age)
+Drivers(SSN (PK), BookID (pk))
 Address (ID (PK), StreetName, Town, City, PostCode)
 Vehicle (Name, ID (PK), Seats, Engine, Cost, Type, Transmission, Availability, BaseID (FK))
 Base (BaseID (PK), AddressID (FK))
-Cost (Price, Discount, BookID (FK)) */
+Cost (Price, Discount, BookID (FK)) 
+*/
+
 
 CREATE TABLE Address (
+
   ID BIGINT PRIMARY KEY AUTO_INCREMENT,
   StreetName VARCHAR(50) NOT NULL,
   Town VARCHAR(20) NOT NULL,
   City VARCHAR(20) NOT NULL,
   PostCode VARCHAR(12) NOT NULL
+) ENGINE=INNODB;
+
+CREATE TABLE Client (
+
+  SSN VARCHAR(20) PRIMARY KEY NOT NULL,
+  LicenseID VARCHAR(20) UNIQUE,
+  FirstName VARCHAR(20) NOT NULL,
+  LastName VARCHAR(20) NOT NULL,
+  DOB DATE NOT NULL,
+  Age TINYINT CHECK (Age>=25),
+  AddressID BIGINT,
+  FOREIGN KEY (AddressID) REFERENCES Address(ID),
+  Mobile CHAR(10) UNIQUE,
+  Email VARCHAR(50) UNIQUE
 ) ENGINE=INNODB;
 
 CREATE TABLE Base (
@@ -26,10 +43,13 @@ CREATE TABLE Base (
 
 CREATE TABLE Employee (
 
-  ID INT PRIMARY KEY AUTO_INCREMENT,
+  SSN VARCHAR(20) PRIMARY KEY,
+  FirstName VARCHAR(20) NOT NULL,
+  LastName VARCHAR(20) NOT NULL,
+  DOB DATE NOT NULL,
   BaseID INT,
   FOREIGN KEY (BaseID) REFERENCES Base(ID),
-  ManagerID INT
+  ManagerSSN VARCHAR(20)
 ) ENGINE=INNODB;
 
 CREATE TABLE Vehicle (
@@ -38,7 +58,7 @@ CREATE TABLE Vehicle (
   Seats TINYINT DEFAULT 4,
   Engine VARCHAR(20) NOT NULL,
   Cost TINYINT(100) NOT NULL,
-  Type VARCHAR(50) NOT NULL,
+  Type VARCHAR(50) NOT NULL CHECK (Type='SmallTownCar' OR Type='FamilyCar' OR Type='MPV' OR Type='SportsCar' OR Type='Luxury' OR Type='Minivans'),
   Availability BOOLEAN,
   Transmission VARCHAR(50) DEFAULT 'Automatic' CHECK (Transmission='Automatic' OR Transmission='Manual'),
   BaseID INT,
@@ -53,27 +73,18 @@ CREATE TABLE Booking (
   Insurance BOOLEAN DEFAULT False,
   Day TINYINT DEFAULT 1,
   VehicleID BIGINT,
+  SSN VARCHAR(20),
+  FOREIGN KEY (SSN) REFERENCES Client(SSN),
   FOREIGN KEY (VehicleID) REFERENCES Vehicle(ID)
-) ENGINE=INNODB;
-
-CREATE TABLE Client (
-
-  LicenseID VARCHAR(20) PRIMARY KEY NOT NULL,
-  FirstName VARCHAR(20) NOT NULL,
-  LastName VARCHAR(20) NOT NULL,
-  DOB DATE NOT NULL,
-  Age TINYINT CHECK (Age>=25),
-  AddressID BIGINT,
-  FOREIGN KEY (AddressID) REFERENCES Address(ID),
-  Mobile CHAR(10) UNIQUE,
-  Email VARCHAR(50) UNIQUE
 ) ENGINE=INNODB;
 
 CREATE TABLE Bind (
   ClientID VARCHAR(20),
+  VehicleID BIGINT,
+  FOREIGN KEY (VehicleID) REFERENCES Vehicle(ID),
   PRIMARY KEY (ClientID),
-  FOREIGN KEY (ClientID) REFERENCES Client(LicenseID),
-  Type VARCHAR(50) ,
+  FOREIGN KEY (ClientID) REFERENCES Client(SSN),
+  Type VARCHAR(50),
   Age TINYINT
 ) ENGINE=INNODB;
 
@@ -86,16 +97,25 @@ CREATE TABLE Cost (
 ) ENGINE=INNODB;
 
 CREATE TABLE Drivers (
-  LicenseID VARCHAR(20),
+  SSN VARCHAR(20),
   BookID INT,
-  FOREIGN KEY (LicenseID) REFERENCES Client(LicenseID),
+  FOREIGN KEY (SSN) REFERENCES Client(SSN),
   FOREIGN KEY (BookID) REFERENCES Booking(ID),
-  Primary KEY(BookID, LicenseID)
+  Primary KEY(BookID, SSN)
 ) ENGINE=INNODB;
 
-/*T4 Indexes*/
-CREATE INDEX EmployeeID ON Employee(ID,BaseID);
-CREATE INDEX BookingDetails ON Booking()
+/*
+
+T4 Indexes-
+
+CREATE INDEX EmployeeID ON Employee(FirstName, LastName, BaseID);
+CREATE INDEX BookingDetails ON Booking(SSN, VehicleID, Day);
+CREATE INDEX VehicleID ON Vehicle(Name, Type, Availability, Cost);
+CREATE INDEX ClientDetails ON Client(FirstName,LastName,Age,Mobile,Email);
+CREATE INDEX Address ON Address(StreetName, City, PostCode);
+
+*/
+
 /*
 **Employee**
 Employee class is created to allow us to have recursive relation.
