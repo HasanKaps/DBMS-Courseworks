@@ -10,7 +10,9 @@ Modified Version (To be used in making UML)-
  https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/HasanKaps/4d3563769a2515f0745780ccc9067ba4/raw/AshabMotors 
  
 
-Final version - 
+Final version (V1)- 
 https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/ziyadalrasbi/e9d746f4b5c3553723217594fe68ec7a/raw/AshabMotorsFinal
 
-https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/HasanKaps/8a96e9f4a8585b1d7ce46a77c2346b81/raw/AshabMotorsFinal2
+V2-
+
+https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/HasanKaps/49b49d9f5c81fd543d85f19152ac7f61/raw/HWMotors
