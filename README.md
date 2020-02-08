@@ -12,3 +12,5 @@ Modified Version (To be used in making UML)-
 
 Final version - 
 https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/ziyadalrasbi/e9d746f4b5c3553723217594fe68ec7a/raw/AshabMotorsFinal
+
+https://www.yworks.com/yed-live/?file=https://gist.githubusercontent.com/HasanKaps/8a96e9f4a8585b1d7ce46a77c2346b81/raw/AshabMotorsFinal2
