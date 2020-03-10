@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<hire category="Small Car">
+  <person category="Small Car">
+  	  <licenseNumber lang="en">Automatic</licensenumber>
+  <address>Put the details here</address>
+  <phoneNumber>07380665998</phoneNumber>
+  <email>hkapadia2000@gmail.com</email>
+  <dateOfBirth>
+	<date>
+             <day lang="en">15</day>
+             <Month>05</Month>
+             <year>1995</year>
+           </date>
+        </dateOfBirth>
+  </person>
+  <vehicle category="Small Car">
+   	  <transmission lang="en">Automatic</transmission>
+  	  <price>30.00</price>
+  </vehicle>
+  <price>30.00</price>
+ <startDate>
+	<date>
+       <day lang="en">23</day>
+       <Month>11</Month>
+       <year>2020</year>
+     </date>
+ </startDate>
+  <endDate>
+	<date>
+       <day lang="en">04</day>
+       <Month>12</Month>
+       <year>2020</year>
+     </date>
+ </endDate>
+ <startLocation>
+	<address>
+  	<lineone lang="en">Campus The Avenue</lineone>
+  	<linetwo>Edinburgh</linetwo>
+  	<postcode>EH14 4AS</postcode>
+</address>
+ </startLocation>
+ <endLocation>
+	<address>
+  		<lineone lang="en">Ziyads Home</lineone>
+  		<linetwo>Edinburgh</linetwo>
+  		<postcode>EH13 3AS</postcode>
+</address>
+ </endLocation>
+</hire>
