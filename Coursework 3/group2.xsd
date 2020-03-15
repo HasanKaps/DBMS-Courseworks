@@ -1,11 +1,13 @@
 <?xml version="1.0" ?> 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
 <!-- type for the ssn attribute -->
 <xs:simpleType name = "ssstype">
   <xs:restriction base="xs:integer">
     <xs:minInclusive value="0"/> 
   </xs:restriction>
 </xs:simpleType>
+
 <!-- the overall specification -->
 <xs:element name="people"> 
   <xs:complexType> 
