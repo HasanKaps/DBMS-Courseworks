@@ -1,4 +1,38 @@
 <?xml version="1.0" ?> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- defination of simple elements-->
+
+<xs:element name="totalprice" type="xs:positiveInteger"/>
+<xs:element name="transmission" type="xs:string"/>
+<xs:element name="price" type="xs:positiveInteger"/>
+<xs:element name="licensenumber" type="xs:string"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="phonenumber" type="xs:string"/>
+<xs:element name="email" type="xs:string"/>
+<xs:element name="line" type="xs:string"/>
+<xs:element name="postcode" type="xs:string"/>
+<xs:element name="day" type="xs:positiveInteger"/>
+<xs:element name="month" type="xs:positiveInteger"/>
+<xs:element name="year" type="xs:positiveInteger"/>
+
+<!-- defination of complex elements -->
+
+<xs:element name="hire">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="name"/>
+      <xs:element ref="address"/>
+      <xs:element ref="city"/>
+      <xs:element ref="country"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- defination of attributes -->
+<xs:attribute name="Category" type="xs:string"/>
+
+
 
 <!-- the overall specification -->
 <xs:element name="Hire">
