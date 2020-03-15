@@ -10,14 +10,15 @@
 	  <xs:sequence> 
 	    <xs:element name = "License No" type = "xs:string" 
 			minOccurs="0" maxOccurs="1" />
-	    <xs:element name ="Name" type="xs:string"/> 
+	</xs:complexType>
+		<xs:element name ="Name" type="xs:string"/> 
 		<xs:complexType> 
    		  <xs:sequence> 
       		<xs:element name="Address" maxOccurs="unbounded">
 		<xs:complexType>
 			<xs:sequence> 
-	           <xs:element name = "Line1" type = "xs:string"/>
-	    	   <xs:element name ="Line2" type="xs:string"/>
+	           <xs:element name = "Line" type = "xs:string"
+			   		minOccurs="0" maxOccurs="2" />
 			   <xs:element name ="PostCode" type="xs:string"/> 
 		</xs:complexType> 
 	    </xs:complexType>
@@ -26,6 +27,7 @@
 			minOccurs = "1" maxOccurs="2"/> 
 	    <xs:element name = "E-Mail" type="xs:string" 
 			minOccurs="0" maxOccurs="2"/>
+		<xs:element name ="DOB" type="xs:string"/> 
 
 		<xs:complexType> 
    		  <xs:sequence> 
@@ -49,8 +51,12 @@
 
 	<xs:complexType> 
 	  <xs:sequence> 
-	    <xs:element name = "Total Prive" type = "xs:string"/>
-	    <xs:element name ="Name" type="xs:string"/> 
+	    <xs:element name = "Total Price" type = "xs:string"/>
+	    <xs:element name ="startdate" type="xs:string" ref='Date'/> 
+		
+		<xs:element name ="enddate" type="xs:string" ref='Date'/> 
+		<xs:element name ="startlocation" type="xs:string" /> 
+		<xs:element name ="endlocation" type="xs:string"/>  
 		
 
 			
