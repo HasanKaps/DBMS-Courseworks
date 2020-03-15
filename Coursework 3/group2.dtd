@@ -2,27 +2,29 @@
 
 <!DOCTYPE HWMotors [
 
-  <!ELEMENT Hire (Person+,Vehicle+,Total Price, Date+, Address+)>
-  <!ELEMENT Vehicle (Category, Transmission, Price)>
-  <!ELEMENT Person (License No, Name, Address+, Phone No, E-Mail, Date+)>
-  <!ELEMEMT Date (Day, Month, Year)>
-  <!ELEMEMT Address(Line1,Line2,PostCode)
-  <!ELEMEMT Total Price (#PCDATA)>
-  <!ELEMEMT Start-End Date (#PCDATA)>
+  <!ELEMENT hire (person,vehicle+,totalprice, startdate, enddate, startlocation, endlocation)>
+  <!ELEMENT vehicle (transmission, price)>
+  <!ELEMENT person (licensenumber, name, address+, phonenumber+, email*, dateofbirth)>
+  <!ELEMEMT startdate (date)>
+  <!ELEMEMT enddate (date)>
+  <!ELEMEMT dateofbirth (date)>
+  <!ELEMEMT date (day, month, year)>
+  <!ELEMEMT startlocation (address)>
+  <!ELEMEMT endlocation (address)>
+  <!ELEMEMT address(line+,postcode)>
+  <!ELEMEMT totalprice (#PCDATA)>
   <!ELEMEMT Category (#PCDATA)>
-  <!ELEMEMT Transmission (#PCDATA)>
-  <!ELEMEMT Price (#PCDATA)>
-  <!ELEMEMT License No (#PCDATA)>
-  <!ELEMEMT Name (#PCDATA)
-  <!ELEMEMT Phone No (#PCDATA)>
-  <!ELEMEMT E-Mail (#PCDATA)>
-  <!ELEMEMT Date (#PCDATA)>
-  <!ELEMEMT Line1 (#PCDATA)>
-  <!ELEMEMT Line2 (#PCDATA)>
-  <!ELEMEMT PostCode (#PCDATA)>
-  <!ELEMEMT Day (#PCDATA)>
-  <!ELEMEMT Month (#PCDATA)>
-  <!ELEMEMT Year (#PCDATA)>
+  <!ELEMEMT transmission (#PCDATA)>
+  <!ELEMEMT price (#PCDATA)>
+  <!ELEMEMT licensenumber (#PCDATA)>
+  <!ELEMEMT name (#PCDATA)
+  <!ELEMEMT phonenumber (#PCDATA)>
+  <!ELEMEMT email (#PCDATA)>
+  <!ELEMEMT line (#PCDATA)>
+  <!ELEMEMT postcode (#PCDATA)>
+  <!ELEMEMT day (#PCDATA)>
+  <!ELEMEMT month (#PCDATA)>
+  <!ELEMEMT year (#PCDATA)>
   
 
 ]>
