@@ -1,32 +1,56 @@
 <?xml version="1.0" ?> 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
-<!-- type for the ssn attribute -->
-<xs:simpleType name = "ssstype">
-  <xs:restriction base="xs:integer">
-    <xs:minInclusive value="0"/> 
-  </xs:restriction>
-</xs:simpleType>
 
 <!-- the overall specification -->
-<xs:element name="people"> 
+<xs:element name="Hire">
+
   <xs:complexType> 
     <xs:sequence> 
-      <xs:element name="person" maxOccurs="unbounded"> 
+      <xs:element name="Person" maxOccurs="unbounded"> 
 	<xs:complexType> 
 	  <xs:sequence> 
-	    <xs:element name = "title" type = "xs:string" 
+	    <xs:element name = "License No" type = "xs:string" 
 			minOccurs="0" maxOccurs="1" />
-	    <xs:element name ="name" type="xs:string"/> 
-	    <xs:element name = "tel" type="xs:string" 
-			minOccurs = "1" maxOccurs="4"/> 
-	    <xs:element name = "email" type="xs:string" 
+	    <xs:element name ="Name" type="xs:string"/> 
+		<xs:complexType> 
+   		  <xs:sequence> 
+      		<xs:element name="Address" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence> 
+	           <xs:element name = "Line1" type = "xs:string"/>
+	    	   <xs:element name ="Line2" type="xs:string"/>
+			   <xs:element name ="PostCode" type="xs:string"/> 
+		</xs:complexType> 
+	    </xs:complexType>
+
+	    <xs:element name = "Phone No" type="xs:string" 
+			minOccurs = "1" maxOccurs="2"/> 
+	    <xs:element name = "E-Mail" type="xs:string" 
 			minOccurs="0" maxOccurs="2"/>
-	  </xs:sequence> 
-	  <xs:attribute name= "ssn" type="ssstype" use="required"/>  
-	</xs:complexType> 
-      </xs:element> 
-    </xs:sequence> 
-  </xs:complexType> 
-</xs:element> 
-</xs:schema>
+
+		<xs:complexType> 
+   		  <xs:sequence> 
+      		<xs:element name="Date" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence> 
+	           <xs:element name = "Day" type = "xs:string"/>
+	    	   <xs:element name ="Month" type="xs:string"/>
+			   <xs:element name ="Year" type="xs:string"/> 
+
+		<xs:complexType> 
+   		  <xs:sequence> 
+      		<xs:element name="Vehicle" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence> 
+	           <xs:element name = "Category" type = "xs:string"
+			   		minOccurs="0" maxOccurs="7" />
+	    	   <xs:element name ="Transmission" type="xs:string"
+			   		minOccurs="0" maxOccurs="2" />
+			   <xs:element name ="Price" type="xs:string"/> 
+
+	<xs:complexType> 
+	  <xs:sequence> 
+	    <xs:element name = "Total Prive" type = "xs:string"/>
+	    <xs:element name ="Name" type="xs:string"/> 
+		
+
+			
