@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE HWMotors [
+
+  <!ELEMENT Hire (Person+,Vehicle+,Total Price, Date+, Address+)>
+  <!ELEMENT Vehicle (Category, Transmission, Price)>
+  <!ELEMENT Person (License No, Name, Address+, Phone No, E-Mail, Date+)>
+  <!ELEMEMT Date (Day, Month, Year)>
+  <!ELEMEMT Address(Line1,Line2,PostCode)
+  <!ELEMEMT Total Price (#PCDATA)>
+  <!ELEMEMT Start-End Date (#PCDATA)>
+  <!ELEMEMT Category (#PCDATA)>
+  <!ELEMEMT Transmission (#PCDATA)>
+  <!ELEMEMT Price (#PCDATA)>
+  <!ELEMEMT License No (#PCDATA)>
+  <!ELEMEMT Name (#PCDATA)
+  <!ELEMEMT Phone No (#PCDATA)>
+  <!ELEMEMT E-Mail (#PCDATA)>
+  <!ELEMEMT Date (#PCDATA)>
+  <!ELEMEMT Line1 (#PCDATA)>
+  <!ELEMEMT Line2 (#PCDATA)>
+  <!ELEMEMT PostCode (#PCDATA)>
+  <!ELEMEMT Day (#PCDATA)>
+  <!ELEMEMT Month (#PCDATA)>
+  <!ELEMEMT Year (#PCDATA)>
+  
+
+]>

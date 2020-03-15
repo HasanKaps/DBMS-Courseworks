@@ -1,0 +1,30 @@
+<?xml version="1.0" ?> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- type for the ssn attribute -->
+<xs:simpleType name = "ssstype">
+  <xs:restriction base="xs:integer">
+    <xs:minInclusive value="0"/> 
+  </xs:restriction>
+</xs:simpleType>
+<!-- the overall specification -->
+<xs:element name="people"> 
+  <xs:complexType> 
+    <xs:sequence> 
+      <xs:element name="person" maxOccurs="unbounded"> 
+	<xs:complexType> 
+	  <xs:sequence> 
+	    <xs:element name = "title" type = "xs:string" 
+			minOccurs="0" maxOccurs="1" />
+	    <xs:element name ="name" type="xs:string"/> 
+	    <xs:element name = "tel" type="xs:string" 
+			minOccurs = "1" maxOccurs="4"/> 
+	    <xs:element name = "email" type="xs:string" 
+			minOccurs="0" maxOccurs="2"/>
+	  </xs:sequence> 
+	  <xs:attribute name= "ssn" type="ssstype" use="required"/>  
+	</xs:complexType> 
+      </xs:element> 
+    </xs:sequence> 
+  </xs:complexType> 
+</xs:element> 
+</xs:schema>
