@@ -1,82 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<hire category="Small Car">
-  
-   <person category="Small Car">
-  	    
-        <licensenumber lang="en">Automatic</licensenumber>
-        <address>Put the details here</address>
-        <phoneNumber>07380665998</phoneNumber>
-        <email>hkapadia2000@gmail.com</email>
-        <dateOfBirth>
-	        
-          <date>
-     
-            <day lang="en">15</day>
-            <Month>05</Month>
-            <year>1995</year>
-     
-          </date>
-     
-        </dateOfBirth>
-   
-   </person>
-  
+<hire>
+
+  <person>
+    <licensenumber lang="en">Automatic</licensenumber>
+    <address>
+      <lineone lang="en">Campus The Avenue</lineone>
+      <linetwo>Edinburgh</linetwo>
+      <postcode>EH14 4AS</postcode>
+    </address>
+    <phonenumber>07380665998</phonenumber>
+    <email>hkapadia2000@gmail.com</email>
+    <dateofbirth>
+      <date>
+        <day lang="en">15</day>
+        <Month>05</Month>
+        <year>1995</year>
+      </date>
+    </dateOfBirth>
+  </person>
+
   <vehicle category="Small Car">
-   
-   	  <transmission lang="en">Automatic</transmission>
-  	  <price>30.00</price>
-  
+    <transmission lang="en">Automatic</transmission>
+    <price>30.00</price>
   </vehicle>
-  
-  <price>
-   30.00
-  </price>
 
- <startDate>
+  <totalprice>
+    30.00
+  </totalprice>
 
-	<date>
-       <day lang="en">23</day>
-       <Month>11</Month>
-       <year>2020</year>
+  <startdate>
+    <date>
+      <day lang="en">23</day>
+      <month>11</month>
+      <year>2020</year>
 
-  </date>
+    </date>
 
-</startDate>
+  </startdate>
 
-  <endDate>
+  <enddate>
 
-	   <date>
+    <date>
 
-       <day lang="en">04</day>
-       <Month>12</Month>
-       <year>2020</year>
-     
-     </date>
+      <day lang="en">04</day>
+      <month>12</month>
+      <year>2020</year>
 
-  </endDate>
- 
-  <startLocation>
+    </date>
 
-	    <address>
-  	     <lineone lang="en">Campus The Avenue</lineone>
-  	     <linetwo>Edinburgh</linetwo>
-  	     <postcode>EH14 4AS</postcode>
-      </address>
+  </enddate>
 
-  </startLocation>
-
-  <endLocation>
+  <startlocation>
 
     <address>
-  	
-    	 <lineone lang="en">Ziyads Home</lineone>
-  		 <linetwo>Edinburgh</linetwo>
-  		 <postcode>EH13 3AS</postcode>
+      <line lang="en">Campus The Avenue</line>
+      <line>Edinburgh</line>
+      <postcode>EH14 4AS</postcode>
+    </address>
+
+  </starlocation>
+
+  <endlocation>
+
+    <address>
+
+      <lineone lang="en">Ziyads Home</lineone>
+      <linetwo>Edinburgh</linetwo>
+      <postcode>EH13 3AS</postcode>
 
     </address>
 
-  </endLocation>
+  </endlocation>
 
 </hire>
